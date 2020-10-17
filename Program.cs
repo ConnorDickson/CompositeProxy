@@ -31,7 +31,7 @@ namespace CompositeProxy
                 StringThree = new string(Enumerable.Repeat(Constants.Chars, 50000).Select(s => s[random.Next(s.Length)]).ToArray()),
                 Status = 0,
                 StringFour = new string(Enumerable.Repeat(Constants.Chars, 50000).Select(s => s[random.Next(s.Length)]).ToArray())
-            });
+            }).ToList();
 
             stopwatch.Stop();
 
