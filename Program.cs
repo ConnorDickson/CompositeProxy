@@ -9,7 +9,12 @@ namespace CompositeProxy
     {
         static void Main(string[] args)
         {
-            var lengthOfCollection = 10000;
+            var lengthOfCollection = 1000;
+
+            if (args.Length > 0)
+            {
+                lengthOfCollection = int.Parse(args[0]);
+            }
 
             PocoCollection(lengthOfCollection);
             CompositeProxy(lengthOfCollection);
@@ -35,7 +40,7 @@ namespace CompositeProxy
 
             stopwatch.Stop();
 
-            WriteLine($"Regular Setup Done: {stopwatch.Elapsed.Milliseconds}");
+            Write($"{stopwatch.Elapsed.Milliseconds}");
 
             stopwatch.Reset();
             stopwatch.Start();
@@ -47,7 +52,7 @@ namespace CompositeProxy
 
             stopwatch.Stop();
 
-            WriteLine($"Regular Update Done: {stopwatch.Elapsed.Milliseconds}"); // 1: 551, 2: 
+            Write($",{stopwatch.Elapsed.Milliseconds}");
         }
 
         private static void CompositeProxy(int lengthOfCollection)
@@ -72,7 +77,7 @@ namespace CompositeProxy
 
             stopwatch.Stop();
 
-            WriteLine($"Composite Setup Done: {stopwatch.Elapsed.Milliseconds}");
+            Write($",{stopwatch.Elapsed.Milliseconds}");
 
             stopwatch.Reset();
 
@@ -85,7 +90,7 @@ namespace CompositeProxy
 
             stopwatch.Stop();
 
-            WriteLine($"Composite Update Done: {stopwatch.Elapsed.Milliseconds}");
+            WriteLine($",{stopwatch.Elapsed.Milliseconds}");
         }
     }
 }
